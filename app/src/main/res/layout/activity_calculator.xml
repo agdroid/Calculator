@@ -1,36 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root_activity_calculator"
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/root_activity_calculator"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.agdroid.calculator.CalculatorActivity">
+
+<fragment
+    android:id="@+id/frag_display"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:name="com.agdroid.calculator.DisplayFragment"
+    tools:layout="@layout/fragment_display"
+    />
+
+<fragment
+    android:id="@+id/frag_input"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.agdroid.calculator.CalculatorActivity">
+    android:name="com.agdroid.calculator.InputFragment"
+    tools:layout="@layout/fragment_input"
+    android:layout_below="@+id/frag_display"
+    />
 
-    <fragment
-        android:id="@+id/frag_display"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:name="com.agdroid.calculator.DisplayFragment"
-        tools:layout="@layout/fragment_display"
-
-        app:layout_constraintBottom_toTopOf="@id/frag_input"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <fragment
-        android:id="@+id/frag_input"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.agdroid.calculator.InputFragment"
-        tools:layout="@layout/fragment_input"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/frag_display"
-        />
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

@@ -1,13 +1,36 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/windowBackground"
+    android:elevation="4dp"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp"
     tools:context="com.agdroid.calculator.DisplayFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageButton
+        android:id="@+id/imb_delete"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/ic_clear_black_36dp"
+        />
 
-</FrameLayout>
+    <HorizontalScrollView
+        android:id="@+id/scv_display"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_toRightOf="@+id/imb_delete"
+        android:layout_toEndOf="@+id/imb_delete"
+        >
+
+        <TextView
+            android:id="@+id/lbl_display"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_gravity="end"
+            tools:text="985+600"
+            />
+
+    </HorizontalScrollView>
+
+</RelativeLayout>
