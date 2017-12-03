@@ -17,19 +17,25 @@ import butterknife.OnLongClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DisplayFragment extends Fragment {
+public class DisplayFragment extends Fragment implements CalculatorContract.PublishToView {
+
+    private CalculatorContract.ForwardDisplayInteractionToPresenter forwartInteraction;
+
+    public void setPresenter (CalculatorContract.ForwardDisplayInteractionToPresenter forwartInteraction) {
+        this.forwartInteraction = forwartInteraction;
+    }
 
     @BindView(R.id.lbl_display)
     TextView display;
 
     @OnClick(R.id.imb_delete)
     public void onDeleteShortClick(View v){
-
+        forwartInteraction.onDeleteShortClick();
     }
 
     @OnLongClick(R.id.imb_delete)
     public boolean onDeleteLongClick(View v){
-
+        forwartInteraction.onDeleteLongClick();
         return true;
     }
 
@@ -51,4 +57,13 @@ public class DisplayFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void showResult(String result) {
+
+    }
+
+    @Override
+    public void showToastMessage(String message) {
+
+    }
 }
