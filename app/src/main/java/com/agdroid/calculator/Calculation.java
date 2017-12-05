@@ -105,6 +105,7 @@ public class Calculation {
     }
 
     /**
+     * #5 Reaktion auf   void onDecimalClick();
      * See type comment for appendOperator
      */
     public void appendDecimal() {
@@ -116,6 +117,7 @@ public class Calculation {
 
 
     /**
+     * #6 Reaktion auf  void onEvaluateClick();
      * If currentExpression passes checks, pass currentExpression to symbols object, \
      * then return the result.
      */
