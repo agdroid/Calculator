@@ -9,5 +9,18 @@ public class CalculatorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
+
+        DisplayFragment displayFragment = (DisplayFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.frag_display);
+
+        InputFragment inputFragment = (InputFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.frag_input);
+
+        CalculatorPresenter presenter = new CalculatorPresenter(displayFragment);
+
+        //In echter Anwendung setzt das Fragment selbst den presenter -> Hier zunächst vereinfacht
+        displayFragment.setPresenter(presenter);
+        inputFragment.setPresenter(presenter);
+
     }
 }
